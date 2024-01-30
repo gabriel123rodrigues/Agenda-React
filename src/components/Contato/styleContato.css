@@ -1,0 +1,16 @@
+div.container-contato{
+    background-color: rgb(231, 174, 174);
+    width: 350px;
+    height: 45px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    margin: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container-contato .contato{
+    font-weight: 200;
+    font-size: 25px;
+}

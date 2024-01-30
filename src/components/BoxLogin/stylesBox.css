@@ -1,0 +1,28 @@
+.box{
+    height: 250px;
+    width: 360px;
+    background-color: rgb(9, 206, 140,0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+label{
+    width: 65px;
+}
+.email, .senha, .nome{
+    display: flex;
+    padding: 15px;
+    align-items: baseline;
+    
+}
+.email input, .senha input, .nome input{
+    border-radius: 15px;
+    border: 1px solid rgb(158, 153, 153);
+    padding: 8px;
+    display: inline-block;
+    margin-left: 15px;
+    width: 220px;
+    height: 25px;
+}

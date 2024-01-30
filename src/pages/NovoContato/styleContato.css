@@ -1,0 +1,49 @@
+
+.container-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    flex-direction: column;
+}
+
+.container-cadastro-contato{
+    height: 250px;
+    width: 360px;
+    background-color: rgb(9, 206, 140,0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+.nome-novo, .email-novo, .telefone{
+    display: flex;
+    padding: 15px;
+    align-items: baseline;
+   
+}
+.add-foto{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgb(189, 177, 177);
+    margin-bottom: 15px;
+}
+
+.nome-novo input, .email-novo input, .telefone input{
+    border-radius: 15px;
+    border: 1px solid rgb(158, 153, 153);
+    padding: 8px;
+    display: inline-block;
+    margin-left: 20px;
+    width: 210px;
+    height: 25px;
+}
+.btn-cancelar{
+    background-color: rgb(241, 126, 126);
+}
+.salvar{
+    background-color: rgb(107, 187, 107);
+}
