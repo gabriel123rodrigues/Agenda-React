@@ -1,9 +1,14 @@
 import RoutesApp from './Routes';
-import './App.css';
 
+import { ToastContainer } from 'react-toastify';
+import  GlobalStyles from './globalStyles.js'
 function App() {
     return(
-        <h1><RoutesApp/></h1>
+        <>
+        <RoutesApp/>
+        <GlobalStyles/>
+        <ToastContainer autoClose={5000} className="toast-container"/>
+        </>
     )
 }
 

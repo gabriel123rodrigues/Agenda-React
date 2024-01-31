@@ -37,7 +37,9 @@ function Login() {
             //    onChange={onChange}
             //    values={values}
                />
-                <button className="entrar">Entrar</button>
+               <Link to="/Home">
+               <button className="entrar">Entrar</button>
+               </Link>
                 <Link to="/cadastro">               
                  <button className="btn-cadastrar">Cadastrar</button>
                 </Link>
