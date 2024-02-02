@@ -13,8 +13,7 @@ import { toast } from "react-toastify";
 
 
 const RoutesApp = () =>{
-    toast.success( "oi, Olha o toast aí")
-    toast.error( "oi, Olha o toast aí")
+   
     return(
         <Router>
            
@@ -26,7 +25,7 @@ const RoutesApp = () =>{
                <Route path="/Home"  element={
                 <MyRoute  element={<Home/>} />}/>
 
-                <Route path="/novocontato" element={<NovoContato/>}/>
+                <Route path="/novocontato" element={ <MyRoute isClosed element={<Cadastro/>} />}/>
             </Routes>
            
         </Router>
