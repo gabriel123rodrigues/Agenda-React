@@ -1,0 +1,32 @@
+POST http://localhost:3000/api/contato
+Content-Type: application/json
+
+{
+    "name": "gabriel 5",
+    "email": "gabrielteste3@gmail.com",
+    "telefone": "1234568",
+    "image": "https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
+}
+
+###
+
+GET http://localhost:3000/api/contato
+
+
+###
+GET http://localhost:3000/api/contato/65c150f99e7fe2e2c2b2a75
+
+
+###
+DELETE http://localhost:3000/api/contato/65c14e6cf02ab8d7375e3705
+
+### 
+PUT http://localhost:3000/api/contato/65c167587bb9928afba06232
+Content-Type: application/json
+
+{
+    "name": "gabriel 5 editado",
+    "email": "gabrielteste3@gmail.com",
+    "telefone": "1234568",
+    "image": "https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
+}
