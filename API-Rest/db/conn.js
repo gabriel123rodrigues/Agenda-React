@@ -1,9 +1,10 @@
 const mongoose = require("mongoose")
+require('dotenv').config();
 
 async function main(){
     try{
         
-        await mongoose.connect("mongodb+srv://kardimrodrigues:vg2KaSKScof2SQY5@cluster0.zsjixjp.mongodb.net/?retryWrites=true&w=majority");
+        await mongoose.connect(process.env.MONGO_DB_URL);
         console.log("conectado ao banco")
     } catch (error){
         console.log(`ERRO: ${error}`)
