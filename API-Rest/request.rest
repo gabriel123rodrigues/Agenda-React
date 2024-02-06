@@ -30,3 +30,22 @@ Content-Type: application/json
     "telefone": "1234568",
     "image": "https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
 }
+
+###
+POST http://localhost:3000/api/cadastrar
+Content-Type: application/json
+
+{
+    "name": "gabriel",
+    "email": "gabrielteste3@gmail.com",
+   "password": "123456"
+}
+
+###
+POST http://localhost:3000/api/login
+Content-Type: application/json 
+
+{
+    "email": "gabrielteste3@gmail.com",
+    "password": "123456"
+}
