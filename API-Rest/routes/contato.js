@@ -1,25 +1,25 @@
 const router = require("express").Router();
-
+const {authMiddleware} = require("../utils/generateToken");
 const contatoController = require("../controllers/contatoController");
 
 router
 .route("/contato")
-.post ((req,res)=> contatoController.create(req, res));
+.post (authMiddleware,(req,res)=> contatoController.create(req, res));
 
 router
 .route("/contato")
-.get((req,res)=> contatoController.getAll(req,res));
+.get(authMiddleware,(req,res)=> contatoController.getAll(req,res));
 
 router
 .route("/contato/:id")
-.get((req,res)=> contatoController.get(req,res));
+.get(authMiddleware,(req,res)=> contatoController.get(req,res));
 
 router
 .route("/contato/:id")
-.delete((req,res)=> contatoController.delete(req, res));
+.delete(authMiddleware,(req,res)=> contatoController.delete(req, res));
 
 router
 .route("/contato/:id")
-.put((req,res)=> contatoController.update(req,res));
+.put(authMiddleware,(req,res)=> contatoController.update(req,res));
 
 module.exports = router;

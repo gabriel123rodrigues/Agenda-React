@@ -6,11 +6,14 @@ const contatoController = {
         try{
 
             console.log('dados recebidos:', req.body);
+            console.log("id:",req.use._id)
+
             const contato ={
                 name: req.body.name,
                 email: req.body.email,
                 telefone: req.body.telefone,
                 image:req.body.image,
+                user: req.user._id
             }
             const response = await ContatoModel.create(contato);
             res.status(201).json({response, msg: "Contato criado com sucesso"});
@@ -20,7 +23,7 @@ const contatoController = {
     },
     getAll: async (req,res)=>{
         try {
-            const contatos = await ContatoModel.find();
+            const contatos = await ContatoModel.find({user:req.user._id});
             res.json(contatos);
         } catch (error) {
             console.log(error)
@@ -29,7 +32,7 @@ const contatoController = {
     get: async(req, res) =>{
         try {
             const id = req.params.id;
-            const contato = await ContatoModel.findById(id);
+            const contato = await ContatoModel.findByOne({_id:id, user: req.user._id});
             if (!contato){
                 res.status(404).json({msg:"Serviço não encontrado"});
                 return

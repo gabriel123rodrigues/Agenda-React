@@ -1,5 +1,5 @@
 const mongoose = require ("mongoose");
-
+const {Usuario} = require ("./Usuario")
 const {Schema} = mongoose;
 
 const contatoSchema = new Schema({
@@ -19,6 +19,11 @@ const contatoSchema = new Schema({
         type:String,
         required:true,
     },
+    user:{
+        type: Schema.Types.ObjectId,
+        ref:Usuario,
+        required: true,
+    }
 }, {
     timestamps:true,
 })

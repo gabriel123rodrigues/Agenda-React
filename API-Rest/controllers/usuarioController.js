@@ -1,4 +1,3 @@
-const { default: userEvent } = require("@testing-library/user-event");
 const {Usuario: UsuarioModel} = require ("../models/Usuario");
 const { generateToken } = require('../utils/generateToken');
 
@@ -22,16 +21,33 @@ const usuarioController ={
             console.log(error)
         }
     },
+    delete: async (req, res)=>{
+        try {
+            const id = req.params.id;
+            const contato = await UsuarioModel.findById(id);
+            if (!contato){
+                res.status(404).json({msg:"Serviço não encontrado"});
+                return
+            }
+            const deleteUsuario = await UsuarioModel.findByIdAndDelete(id);
+            res.status(200).json({deleteUsuario, msg:"Usuário excluido com sucesso"})
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
     async login(req,res){
         const {email, password} = req.body
         const usuario = await UsuarioModel.findOne({email});
 
         if (!usuario){
-            res.status(400).json("usuário não existe")
+
+           return res.status(400).json("usuário não existe")
         }
         if (await usuario.matchPassword(password)){
+            
             res.status(200).json({
-                _id:userEvent._id,
+                _id:usuario._id,
                 name:usuario.name,
                 email:usuario.email,
                 token: generateToken(usuario._id),

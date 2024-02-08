@@ -36,16 +36,34 @@ POST http://localhost:3000/api/cadastrar
 Content-Type: application/json
 
 {
-    "name": "gabriel",
-    "email": "gabrielteste3@gmail.com",
-   "password": "123456"
+    "name": "carlos",
+    "email": "carlinn@gmail.com",
+    "password": "123456"
 }
 
 ###
 POST http://localhost:3000/api/login
 Content-Type: application/json 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzNhOTNlMGZlNmMxZGEwOTMyMjNmMSIsImlhdCI6MTcwNzMyMzUwMywiZXhwIjoxNzA5OTE1NTAzfQ.sicnG-W7pxFZPkjiAGaQISdqc43QsZJ5Nq-TLlFh8HM
 
 {
-    "email": "gabrielteste3@gmail.com",
+    "email": "carlinn@gmail.com",
     "password": "123456"
+}
+
+### contatos usuário autenticado
+GET http://localhost:3000/api/contato
+Authorization:  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzNhOTNlMGZlNmMxZGEwOTMyMjNmMSIsImlhdCI6MTcwNzMyMjIwNiwiZXhwIjoxNzA5OTE0MjA2fQ.nvhgaAU3xtbaUONRsPPIylGPY7N-MT3Dtx9ZDpXKsH0"
+
+### cadastro com token
+POST http://localhost:3000/api/contato
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzNhOTNlMGZlNmMxZGEwOTMyMjNmMSIsImlhdCI6MTcwNzMyMzUwMywiZXhwIjoxNzA5OTE1NTAzfQ.sicnG-W7pxFZPkjiAGaQISdqc43QsZJ5Nq-TLlFh8HM
+
+{
+    "name": "contato do carlos",
+    "email": "email@gmail.com",
+    "telefone": "123456789",
+    "image": "https://example.com/imagem_do_contato.jpg",
+    "user": "65c3a93e0fe6c1da093223f1"
 }
