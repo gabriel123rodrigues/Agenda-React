@@ -1,6 +1,7 @@
 const router = require ("express").Router();
 const usuarioController = require ("../controllers/usuarioController");
-const  {loginRequired} = require("../utils/generateToken")
+const  {loginRequired} = require("../utils/generateToken");
+
 router
 .route("/cadastrar")
 .post ((req,res)=> usuarioController.create(req, res));

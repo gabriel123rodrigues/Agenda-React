@@ -86,3 +86,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYx
     "name": "jacaN EDIT",
     "email": "janemail@gmail.com"
 }
+
+### testando envio de foto
+POST http://localhost:3000/api/fotos
+
+@C:/Users/gabri/Downloads/agenda.png
