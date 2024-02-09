@@ -23,15 +23,42 @@ const usuarioController ={
     },
     delete: async (req, res)=>{
         try {
-            const id = req.params.id;
-            const contato = await UsuarioModel.findById(id);
-            if (!contato){
-                res.status(404).json({msg:"Serviço não encontrado"});
+            const id = req.userId;
+            
+            const usuario = await UsuarioModel.findById(id);
+            console.log(req.userId)
+            if (!usuario){
+                res.status(404).json({msg:"Usuário não encontrado"});
                 return
             }
             const deleteUsuario = await UsuarioModel.findByIdAndDelete(id);
             res.status(200).json({deleteUsuario, msg:"Usuário excluido com sucesso"})
 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    update: async (req,res)=>{
+        try {
+            const id = req.userId;
+            
+            if (!id) return res.status(400).json({errors:'usuário não existe'});
+
+            const usuario = {
+                name: req.body.name,
+                email: req.body.email,
+                password: req.body.password,
+                
+            }
+
+            const {email} = usuario;
+            const checkEmail = await UsuarioModel.findOne({email});
+            if(checkEmail) return res.status(400).json("email já cadastrado tente outro");
+            
+        const updateUsuario = await UsuarioModel.findByIdAndUpdate(id, usuario);
+
+        if(!updateUsuario) return res.status(404).json({ msg:"serviço não encontrado"});
+        res.status(200).json({usuario, msg:"usuário atualizado com sucesso"})
         } catch (error) {
             console.log(error)
         }

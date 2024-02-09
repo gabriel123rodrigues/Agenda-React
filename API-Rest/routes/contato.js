@@ -7,11 +7,11 @@ router
 .post (authMiddleware,(req,res)=> contatoController.create(req, res));
 
 router
-.route("/contato")
+.route("/contatos")
 .get(authMiddleware,(req,res)=> contatoController.getAll(req,res));
 
 router
-.route("/contato/:id")
+.route("/contato")
 .get(authMiddleware,(req,res)=> contatoController.get(req,res));
 
 router
