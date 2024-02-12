@@ -6,8 +6,8 @@ const contatoController = {
         try{
             const id = req.userId;
 
-            console.log('dados recebidos:', req.body);
-            console.log("id:",req.UserId);
+           
+            
             if(!id)  return res.status(400).json({errors:'É necessário estar logado'});
 
             const contato ={
@@ -18,6 +18,7 @@ const contatoController = {
                 user: req.userId
             }
             const response = await ContatoModel.create(contato);
+            console.log("response do contato:",response);
             res.status(201).json({response, msg: "Contato criado com sucesso"});
         }catch(error){
             console.log(error)

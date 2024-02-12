@@ -3,8 +3,8 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYxMjdhM2UwYTI2OCIsImlhdCI6MTcwNzQyMDY1NCwiZXhwIjoxNzEwMDEyNjU0fQ.nM5AtPcpmNCObwk7TMKEnGuUwgxuPaFOZ7L1pF8TRmo
 
 {
-    "name": "lucas",
-    "email": "gabrieltjkhjkeste3@gmail.com",
+    "name": "Karolyne",
+    "email": "karol@gmail.com",
     "telefone": "1234568",
     "image": "https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
 }
@@ -36,7 +36,7 @@ Content-Type: application/json
     "image": "https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png"
 }
 
-###
+### cadastrar usuário
 POST http://localhost:3000/api/cadastrar
 Content-Type: application/json
 
@@ -65,7 +65,7 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzNhOTNlMGZlNmMxZGEwOTMyMjNmMSIsImlhdCI6MTcwNzMyMzUwMywiZXhwIjoxNzA5OTE1NTAzfQ.sicnG-W7pxFZPkjiAGaQISdqc43QsZJ5Nq-TLlFh8HM
 
 {
-    "name": "contato do carlos",
+    "name": "jirambo",
     "email": "email@gmail.com",
     "telefone": "123456789",
     "image": "https://example.com/imagem_do_contato.jpg",

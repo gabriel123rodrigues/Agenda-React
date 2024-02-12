@@ -13,6 +13,7 @@ const authMiddleware = (req, res,next)=>{
     
     try {
         const dados = jwt.verify(token, process.env.JWT_SECRET);
+        // console.log(dados)
         if (!dados){
             return res.status(401).json({msg:'token de autenticação inválido'})
         }

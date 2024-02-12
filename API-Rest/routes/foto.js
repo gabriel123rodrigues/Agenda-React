@@ -1,10 +1,14 @@
 const router = require("express").Router();
 const fotoController = require ("../controllers/fotoController");
-
+const {authMiddleware} = require("../utils/generateToken")
 
 
 router
 .route('/fotos')
-.post((req,res)=> fotoController.create(req, res));
+.post(authMiddleware,(req,res)=> fotoController.create(req, res));
+
+router
+.route('/foto/delete/:id')
+.delete(authMiddleware,(req,res)=> fotoController.delete(req,res));
 
 module.exports = router;
