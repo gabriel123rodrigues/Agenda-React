@@ -11,4 +11,8 @@ router
 .route('/foto/delete/:id')
 .delete(authMiddleware,(req,res)=> fotoController.delete(req,res));
 
+router
+.route("/foto/:id")
+.get(authMiddleware,(req,res)=> fotoController.get(req,res));
+
 module.exports = router;

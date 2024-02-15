@@ -91,3 +91,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYx
 POST http://localhost:3000/api/fotos
 
 @C:/Users/gabri/Downloads/agenda.png
+
+### busca foto 
+
+GET http://localhost:3000/api/foto/65ca8a60d11366081e9a6b0f
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYxMjdhM2UwYTI2OCIsImlhdCI6MTcwNzQyMDY1NCwiZXhwIjoxNzEwMDEyNjU0fQ.nM5AtPcpmNCObwk7TMKEnGuUwgxuPaFOZ7L1pF8TRmo

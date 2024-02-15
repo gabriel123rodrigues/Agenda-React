@@ -1,5 +1,6 @@
 const mongoose = require ("mongoose");
-const {Contato} = require ("./Contato")
+const {Contato} = require ("./Contato");
+const appConfig = require('../config/appConfig');
 const {Schema} = mongoose;
 
 const fotoSchema = new Schema({
@@ -10,6 +11,7 @@ const fotoSchema = new Schema({
         required:true,
     },
     filename:{
+
         type:String,
         required:true,
     },
@@ -24,7 +26,21 @@ const fotoSchema = new Schema({
     }
 }, {
     timestamps:true,
-})
+});
+
+fotoSchema.virtual('url').get(function(){
+        return `${appConfig.url}/images/${this.filename}`;
+});
+
+fotoSchema.set('toJSON', {
+    getters: true,
+    virtuals: true,
+    transform: function(doc, ret) {
+        ret.url = doc.url;
+        delete ret._id;
+        delete ret.__v;
+    }
+});
 
 const Foto = mongoose.model("Foto",fotoSchema);
 
