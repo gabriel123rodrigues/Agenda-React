@@ -1,23 +1,27 @@
 const {Contato: ContatoModel } = require("../models/Contato");
 
+
 const contatoController = {
 
     create: async (req, res)=>{
         try{
             const id = req.userId;
-
            
-            
+        //*** */
+
             if(!id)  return res.status(400).json({errors:'É necessário estar logado'});
 
             const contato ={
                 name: req.body.name,
                 email: req.body.email,
                 telefone: req.body.telefone,
-                image:req.body.image,
+                imageId:foto._id,
                 user: req.userId
             }
             const response = await ContatoModel.create(contato);
+
+            await FotoModel.findByIdAndUpdate(foto._id,{contatoUser: response._id})
+
             console.log("response do contato:",response);
             res.status(201).json({response, msg: "Contato criado com sucesso"});
         }catch(error){

@@ -7,13 +7,13 @@ const generateToken = (id)=>{
 }
 const authMiddleware = (req, res,next)=>{
     const token = req.headers.authorization;
-    
+    console.log('token recebido',token)
     if(!token) return res.status(401).json({msg: 'Token de autenticação não fornecido'})
     
     
     try {
         const dados = jwt.verify(token, process.env.JWT_SECRET);
-        // console.log(dados)
+        
         if (!dados){
             return res.status(401).json({msg:'token de autenticação inválido'})
         }
@@ -21,6 +21,7 @@ const authMiddleware = (req, res,next)=>{
        console.log(req.userId)
         next();
     } catch (error) {
+        // console.log(error)
         res.status(401).json({error: 'Token inválido ou expirado'});
     }
 }

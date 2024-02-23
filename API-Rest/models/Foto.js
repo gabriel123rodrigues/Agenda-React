@@ -1,6 +1,7 @@
 const mongoose = require ("mongoose");
 const {Contato} = require ("./Contato");
 const appConfig = require('../config/appConfig');
+const { Usuario } = require("./Usuario");
 const {Schema} = mongoose;
 
 const fotoSchema = new Schema({
@@ -19,11 +20,17 @@ const fotoSchema = new Schema({
         type: String,
         required:true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref:Usuario,
+        required: true
+    },
     contatoUser: {
         type: Schema.Types.ObjectId,
         ref:Contato,
         required: true,
     }
+    
 }, {
     timestamps:true,
 });

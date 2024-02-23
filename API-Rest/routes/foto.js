@@ -4,8 +4,12 @@ const {authMiddleware} = require("../utils/generateToken")
 
 
 router
-.route('/fotos')
+.route('/foto/:id')
 .post(authMiddleware,(req,res)=> fotoController.create(req, res));
+router
+
+.route('/fotos/all')
+.get(authMiddleware,(req,res)=> fotoController.getAll(req, res));
 
 router
 .route('/foto/delete/:id')

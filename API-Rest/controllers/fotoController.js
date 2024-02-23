@@ -1,6 +1,6 @@
 const multer = require ('multer');
 const multerConfig = require ('../config/multer');
-const { Foto: FotoModel } = require('../models/foto');
+const { Foto: FotoModel } = require('../models/Foto');
 
 const upload = multer(multerConfig).single('image');
 
@@ -24,12 +24,15 @@ const fotoController = {
                 const file = req.file.path;
                 const {contatoUser} = req.body;
                 if(!contatoUser)  return res.status(400).json({errors:'Usuário inixistente'});
+                
                 const foto = await FotoModel.create({
                     originalname: originalname,
                     filename: filename,
                     src: file,
+                    user: id,
                     contatoUser: contatoUser,
                 })
+              
                 
     
                 res.status(200).json({foto, msg:"imagem salva com sucesso"})
@@ -59,10 +62,21 @@ const fotoController = {
             console.log(error)
         }
     },
+    getAll: async (req,res)=>{
+        const users = req.userId;
+        if(!users) return res.status(400).json({errors: 'necessário estar logado'});
+        try {
+            const fotos = await FotoModel.find({user:users})
+            if(fotos.length === 0) return res.status(400).json({errors:'nenhum contato cadastrado'});
+            res.status(200).json({fotos, msg:"lista de todas as fotos"})
+        } catch (error) {
+            console.log(error)
+        }
+    },
     get: async(req,res)=>{
         try {
-
             const id = req.userId;
+            console.log('idfotocontroller',id)
             const fotoId = req.params.id.trim();
             if (!id) return res.status(400).json({msg: "token é necessário"});
             const foto = await FotoModel.findById(fotoId)

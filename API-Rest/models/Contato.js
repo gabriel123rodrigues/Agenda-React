@@ -16,10 +16,9 @@ const contatoSchema = new Schema({
         type:String,
         required:true,
     },
-    image:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Foto',
-       
+    imageId:{
+        type: String
+        
     },
     user:{
         type: Schema.Types.ObjectId,

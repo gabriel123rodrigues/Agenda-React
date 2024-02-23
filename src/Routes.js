@@ -22,10 +22,11 @@ const RoutesApp = () =>{
 
                 <Route path="/cadastro" element={<Cadastro/>}/>
                
-               <Route path="/Home"  element={
+               <Route path="/home"  element={
                 <MyRoute  element={<Home/>} />}/>
 
-                <Route path="/novocontato" element={ <MyRoute isClosed element={<Cadastro/>} />}/>
+                <Route path="/novocontato" element={ 
+                <MyRoute isClosed element={<Cadastro/>} />}/>
             </Routes>
            
         </Router>

@@ -11,13 +11,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYx
 
 ### bucas todos os contatos do usuário
 
-GET http://localhost:3000/api/contatos/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYxMjdhM2UwYTI2OCIsImlhdCI6MTcwNzQyMDY1NCwiZXhwIjoxNzEwMDEyNjU0fQ.nM5AtPcpmNCObwk7TMKEnGuUwgxuPaFOZ7L1pF8TRmo
+GET http://localhost:3000/api/contatos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2ZhZjcwMmU2MDYyYTM0NzY4YmVmNSIsImlhdCI6MTcwODEwOTcxMywiZXhwIjoxNzEwNzAxNzEzfQ.OXJBYgOMr8FGT0Ep_MwxDKLVpKZgOBaUXQ1DNahZFzg
 
 
 ### busca contato específico
 GET http://localhost:3000/api/contato?name=lucasn
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYxMjdhM2UwYTI2OCIsImlhdCI6MTcwNzQyMDY1NCwiZXhwIjoxNzEwMDEyNjU0fQ.nM5AtPcpmNCObwk7TMKEnGuUwgxuPaFOZ7L1pF8TRmo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2E3YTQyNTc3MGQ2YzMxMzg0NWQ0YyIsImlhdCI6MTcwNzc2ODQ4MiwiZXhwIjoxNzEwMzYwNDgyfQ.QTGhI2Z56O2wyUEb0dPqiH_9h9lBZBHgmg_g_rJWGR0
 
 
 
@@ -51,15 +51,15 @@ POST http://localhost:3000/api/login
 Content-Type: application/json 
 
 {
-   "email": "gabrieltjkhjkeste3@gmail.com",
+   "email": "gabriel@gmail.com",
     "password": "123456"
 }
 
 ### contatos usuário autenticado
 GET http://localhost:3000/api/contato
-Authorization:  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzNhOTNlMGZlNmMxZGEwOTMyMjNmMSIsImlhdCI6MTcwNzMyMjIwNiwiZXhwIjoxNzA5OTE0MjA2fQ.nvhgaAU3xtbaUONRsPPIylGPY7N-MT3Dtx9ZDpXKsH0"
+Authorization:  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2ZhZjcwMmU2MDYyYTM0NzY4YmVmNSIsImlhdCI6MTcwODUzMjExOCwiZXhwIjoxNzExMTI0MTE4fQ.YHs_mYx2BCdlE5jIlEKI-Nni4DHY49zdn3zPm4uqug4"
 
-### cadastro com token
+### cadastro contato com token
 POST http://localhost:3000/api/contato
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzNhOTNlMGZlNmMxZGEwOTMyMjNmMSIsImlhdCI6MTcwNzMyMzUwMywiZXhwIjoxNzA5OTE1NTAzfQ.sicnG-W7pxFZPkjiAGaQISdqc43QsZJ5Nq-TLlFh8HM
@@ -94,5 +94,10 @@ POST http://localhost:3000/api/fotos
 
 ### busca foto 
 
-GET http://localhost:3000/api/foto/65ca8a60d11366081e9a6b0f
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYxMjdhM2UwYTI2OCIsImlhdCI6MTcwNzQyMDY1NCwiZXhwIjoxNzEwMDEyNjU0fQ.nM5AtPcpmNCObwk7TMKEnGuUwgxuPaFOZ7L1pF8TRmo
+GET http://localhost:3000/api/foto/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2ZhZjcwMmU2MDYyYTM0NzY4YmVmNSIsImlhdCI6MTcwODUzMjExOCwiZXhwIjoxNzExMTI0MTE4fQ.YHs_mYx2BCdlE5jIlEKI-Nni4DHY49zdn3zPm4uqug4
+
+
+### busca todas as fotos dos contatos
+GET http://localhost:3000/api/fotos/all
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2ZhZjcwMmU2MDYyYTM0NzY4YmVmNSIsImlhdCI6MTcwODUzMjExOCwiZXhwIjoxNzExMTI0MTE4fQ.YHs_mYx2BCdlE5jIlEKI-Nni4DHY49zdn3zPm4uqug4
