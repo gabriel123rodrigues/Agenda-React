@@ -15,12 +15,11 @@ const contatoController = {
                 name: req.body.name,
                 email: req.body.email,
                 telefone: req.body.telefone,
-                imageId:foto._id,
                 user: req.userId
             }
             const response = await ContatoModel.create(contato);
 
-            await FotoModel.findByIdAndUpdate(foto._id,{contatoUser: response._id})
+           
 
             console.log("response do contato:",response);
             res.status(201).json({response, msg: "Contato criado com sucesso"});

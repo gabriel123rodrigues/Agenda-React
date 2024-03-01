@@ -2,7 +2,7 @@ import React from "react";
 import './stylesBox.css';
 
 
-function BoxLogin({ cadastro}) {
+function BoxLogin({ cadastro, onChange, values, errors }) {
     
     return (
         <div className="box">
@@ -11,19 +11,22 @@ function BoxLogin({ cadastro}) {
                 <label >Email</label>
                 <input type="text" 
                 name="email" 
-                // onchange={onChange} 
-                // value={values.email} 
+                onChange={onChange}
+                value={values.email}
                 placeholder="E-mail"
                  ></input>
+
+                    { errors && errors.email && <span className="error">{errors.email}</span>}
+
             </div>
             {
                cadastro && (
             <div className="nome">
                 <label >Nome:</label>
                 <input type="text"
-                 name="nome" 
-                // onChange={onChange} 
-                // value={values.nome} 
+                name="name" 
+                onChange={onChange}
+                value={values.name} 
                 placeholder="Nome"
                 ></input>
             </div>)
@@ -32,9 +35,9 @@ function BoxLogin({ cadastro}) {
                 <label >Senha</label>
                 <input type="password"
                  name="password"
-                //   onChange={onChange} 
-                //   value={values.password} 
-                  placeholder="Senha"></input>
+                 onChange={onChange}
+                 value={values.password}
+                 placeholder="Senha"></input>
             </div>
 
         </div>

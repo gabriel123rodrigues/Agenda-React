@@ -10,7 +10,7 @@ const fotoController = {
         return upload(req, res, async (error)=>{
             
                 const id = req.userId;
-                console.log("id create", id)
+                
                 if(!id)  return res.status(400).json({errors:'É necessário estar logado'});
                 if(error){
                     return res.status(400).json({

@@ -12,7 +12,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzUwZTAwYTU5NmYx
 ### bucas todos os contatos do usuário
 
 GET http://localhost:3000/api/contatos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2ZhZjcwMmU2MDYyYTM0NzY4YmVmNSIsImlhdCI6MTcwODEwOTcxMywiZXhwIjoxNzEwNzAxNzEzfQ.OXJBYgOMr8FGT0Ep_MwxDKLVpKZgOBaUXQ1DNahZFzg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTBhZjhlOGM4M2MwYTEyNjdiZTU0MSIsImlhdCI6MTcwOTIyMzg1OSwiZXhwIjoxNzExODE1ODU5fQ.VfEe3StB3w3C-6is_XVK2nq4OVrKAYdbb_3NuTjGCHg
 
 
 ### busca contato específico

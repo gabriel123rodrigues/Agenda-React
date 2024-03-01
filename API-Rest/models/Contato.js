@@ -16,10 +16,7 @@ const contatoSchema = new Schema({
         type:String,
         required:true,
     },
-    imageId:{
-        type: String
-        
-    },
+   
     user:{
         type: Schema.Types.ObjectId,
         ref:Usuario,

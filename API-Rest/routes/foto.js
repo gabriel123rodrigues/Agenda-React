@@ -4,7 +4,7 @@ const {authMiddleware} = require("../utils/generateToken")
 
 
 router
-.route('/foto/:id')
+.route('/foto')
 .post(authMiddleware,(req,res)=> fotoController.create(req, res));
 router
 

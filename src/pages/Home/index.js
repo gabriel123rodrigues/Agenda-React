@@ -14,9 +14,11 @@ function Home() {
     const [fotos, setFotos] = useState([]);
     const [contatos, setContatos] = useState([]);
     const [contatoSelecionado, setContatoSelecionado] = useState(null);
+    const [fotoSelecionada, setFotoSelecionada] = useState([]);
+    console.log('fotoselecionada', fotoSelecionada)
 
 
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2ZhZjcwMmU2MDYyYTM0NzY4YmVmNSIsImlhdCI6MTcwODEwOTcxMywiZXhwIjoxNzEwNzAxNzEzfQ.OXJBYgOMr8FGT0Ep_MwxDKLVpKZgOBaUXQ1DNahZFzg'
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTBhZjhlOGM4M2MwYTEyNjdiZTU0MSIsImlhdCI6MTcwOTIyMzg1OSwiZXhwIjoxNzExODE1ODU5fQ.VfEe3StB3w3C-6is_XVK2nq4OVrKAYdbb_3NuTjGCHg'
 
     useEffect(() => {
         const getData = async () => {
@@ -50,13 +52,12 @@ function Home() {
 
                     headers: {
                         'Authorization': token
-                    }
+                    },
+                  
+
                 });
-                setFotos(response.data);
-
-
-
-
+              
+                setFotos(response.data.fotos);
             } catch (error) {
                 console.log(error)
             }
@@ -65,13 +66,27 @@ function Home() {
         getFotos();
 
     }, [])
-    console.log('contatos:', contatos, "fotos:", fotos)
-    console.log('contatoSlecionado:', contatoSelecionado)
+    // console.log('contatos:', contatos, "fotos:", fotos)
+    // console.log('contatoSlecionado:', contatoSelecionado)
 
 
     const handleContatoClick = (contato) => {
         setContatoSelecionado(contato);
     }
+    
+    useEffect(()=>{
+        const findPicture = () =>{
+        
+            const fotoDoContato = fotos.find(foto => foto.contatoUser === contatoSelecionado._id);
+            console.log('fotodocontato:', fotoDoContato)
+            if(fotoDoContato){
+                setFotoSelecionada(fotoDoContato.url)
+            } else {
+                setFotoSelecionada(null)
+            }
+        }
+        findPicture();
+    },[contatoSelecionado])
     return (
         <>
             <NavBar />
@@ -94,17 +109,18 @@ function Home() {
                 </section>
                 <section className="container-infos">
                     {/* preciso arrumar a parte de buscar a foto */}
-                    <div className="foto" key={contatos._id}>
+                    <div className="foto">
                         {
-                            contatos.map(contato => (
-                                get(contato, '_id', false) ? (
-                                    <img src={contato.foto.url} />
+                            
+                           fotoSelecionada  ? (
+
+                                    <img src={fotoSelecionada} className="img-foto"/>
 
                                 )
                                     : (
                                         <FaUserCircle size={260} />
                                     )
-                            ))
+                            
                         }
                     </div>
                     <div className="nome"><h3>{
