@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { isEmail } from "validator";
 import axios from "../../services/axios";
+import {get} from 'lodash'
 
 function Cadastro() {
    
@@ -13,9 +14,7 @@ function Cadastro() {
     name: '',
     password: ''
    });
-   console.log(values)
    const [errors,setErrors]=useState({});
-
    console.log(errors)
    
    const handleChange = (e)=>{
@@ -45,8 +44,12 @@ function Cadastro() {
     try {
         const response = await axios.post('/cadastrar', values);
         console.log(response.data)
-    } catch (error) {
-        console.log(error)
+    } catch (e) {
+     
+        const errors = get(e, 'response.data');
+        if(errors) return setErrors({emailExiste: "O E-mail já existe"})
+        console.log(e)
+        
     }
    }
 }

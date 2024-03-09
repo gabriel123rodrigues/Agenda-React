@@ -26,6 +26,7 @@ function Login() {
             <div className="containerLogin">
                 <h2>Login</h2>
                <BoxLogin
+               login
                />
                <Link to="/Home">
                <button className="entrar" onClick={handleClick}>Entrar</button>
