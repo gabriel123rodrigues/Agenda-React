@@ -26,6 +26,8 @@ function BoxLogin({ cadastro, onChange, values, errors, login }) {
                         <label >Email</label>
                         <input type="text"
                             name="email"
+                            onChange={onChange}
+                            value={values.email}
                             placeholder="E-mail"
                         ></input>
 
@@ -55,6 +57,8 @@ function BoxLogin({ cadastro, onChange, values, errors, login }) {
             login && (<div className="senha">
                 <label >Senha</label>
                 <input type="password"
+                    onChange={onChange}
+                    value={values.password}
                     name="password"
                     placeholder="Senha"></input>
                 {errors && errors.password && <span className="error">{errors.password}</span>}
